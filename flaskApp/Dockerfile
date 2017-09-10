@@ -1,9 +1,11 @@
 FROM frolvlad/alpine-python2
 
-ADD app.py /
+COPY . /app
+WORKDIR /app
 
 RUN pip install Flask
 
 EXPOSE 5000
 
-CMD ["python", "./app.py"]
+ENTRYPOINT ["python"]
+CMD ["app.py"]
